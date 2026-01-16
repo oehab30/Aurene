@@ -1,0 +1,162 @@
+{
+  "users": [
+    { "id": "1", "name": "Alice Johnson", "email": "alice@example.com", "role": "admin" },
+    { "id": "2", "name": "Bob Smith", "email": "bob@example.com", "role": "user" },
+    { "id": "3", "name": "Charlie Brown", "email": "charlie@example.com", "role": "user" }
+  ],
+
+  "products": [
+    { 
+      "id": "1", 
+      "name": "Classic Gold Watch", 
+      "category": "Watches", 
+      "price": 2450, 
+      "material": "Gold", 
+      "color": "white", 
+      "image": "/home-pic/BS-1.png", 
+      "stock": 12,
+      "description": "Exquisite gold watch with a minimalist face."
+    },
+    { 
+      "id": "2", 
+      "name": "Deep Ocean Blue", 
+      "category": "Watches", 
+      "price": 3450, 
+      "material": "Stainless Steel", 
+      "color": "blue", 
+      "image": "/home-pic/BS-2.png", 
+      "stock": 5,
+      "description": "High-performance timepiece for the modern explorer."
+    },
+    { 
+      "id": "3", 
+      "name": "Silver Essence", 
+      "category": "Rings", 
+      "price": 2000, 
+      "material": "Silver", 
+      "color": "gray", 
+      "image": "/home-pic/BS-3.png", 
+      "stock": 20,
+      "description": "Sterling silver ring with a hand-polished finish."
+    },
+    { 
+      "id": "4", 
+      "name": "Midnight Edition", 
+      "category": "Watches", 
+      "price": 2000, 
+      "material": "Stainless Steel", 
+      "color": "black", 
+      "image": "/home-pic/BS-4.png", 
+      "stock": 8,
+      "description": "Sleek all-black design for unparalleled elegance."
+    },
+    { 
+      "id": "5", 
+      "name": "Luxury Leather Bag", 
+      "category": "Bags", 
+      "price": 1200, 
+      "material": "Leather", 
+      "color": "purple", 
+      "image": "/home-pic/BS-1.png", 
+      "stock": 15,
+      "description": "Fine Italian leather handbag for your daily essentials."
+    },
+    { 
+      "id": "6", 
+      "name": "Royal Bracelet", 
+      "category": "Bracelet", 
+      "price": 850, 
+      "material": "Silver", 
+      "color": "white", 
+      "image": "/home-pic/BS-3.png", 
+      "stock": 30,
+      "description": "Delicate silver chain with crystal accents."
+    },
+    { 
+      "id": "7", 
+      "name": "Elegant Gold Watch", 
+      "category": "Watches", 
+      "price": 2450, 
+      "material": "Gold", 
+      "color": "white", 
+      "image": "/home-pic/BS-1.png", 
+      "stock": 12,
+      "description": "Exquisite gold watch with a minimalist face."
+    },
+    { 
+      "id": "8", 
+      "name": "Marine Blue Diver", 
+      "category": "Watches", 
+      "price": 3450, 
+      "material": "Stainless Steel", 
+      "color": "blue", 
+      "image": "/home-pic/BS-2.png", 
+      "stock": 5,
+      "description": "High-performance timepiece for the modern explorer."
+    },
+    { 
+      "id": "9", 
+      "name": "Platinum Ring", 
+      "category": "Rings", 
+      "price": 2100, 
+      "material": "Silver", 
+      "color": "gray", 
+      "image": "/home-pic/BS-3.png", 
+      "stock": 20,
+      "description": "Sterling silver ring with a hand-polished finish."
+    },
+    { 
+      "id": "10", 
+      "name": "Stealth Watch", 
+      "category": "Watches", 
+      "price": 2000, 
+      "material": "Stainless Steel", 
+      "color": "black", 
+      "image": "/home-pic/BS-4.png", 
+      "stock": 8,
+      "description": "Sleek all-black design for unparalleled elegance."
+    },
+    { 
+      "id": "11", 
+      "name": "Designer Bag", 
+      "category": "Bags", 
+      "price": 1250, 
+      "material": "Leather", 
+      "color": "purple", 
+      "image": "/home-pic/BS-1.png", 
+      "stock": 15,
+      "description": "Fine Italian leather handbag for your daily essentials."
+    },
+    { 
+      "id": "12", 
+      "name": "Diamond Bracelet", 
+      "category": "Bracelet", 
+      "price": 950, 
+      "material": "Silver", 
+      "color": "white", 
+      "image": "/home-pic/BS-3.png", 
+      "stock": 30,
+      "description": "Delicate silver chain with crystal accents."
+    }
+  ],
+
+  "orders": [
+    { "id": "1", "userId": "2", "productId": "3", "quantity": 1, "status": "pending", "total": 2000 },
+    { "id": "2", "userId": "3", "productId": "2", "quantity": 1, "status": "shipped", "total": 3450 }
+  ],
+
+  "categories": [
+    { "id": "1", "name": "Watches" },
+    { "id": "2", "name": "Bags" },
+    { "id": "3", "name": "Rings" },
+    { "id": "4", "name": "Bracelet" }
+  ],
+
+  "colors": [
+    { "id": "1", "name": "White", "hex": "#FFFFFF" },
+    { "id": "2", "name": "Gray", "hex": "#808080" },
+    { "id": "3", "name": "Black", "hex": "#000000" },
+    { "id": "4", "name": "Purple", "hex": "#800080" },
+    { "id": "5", "name": "Blue", "hex": "#0000FF" }
+  ]
+}
