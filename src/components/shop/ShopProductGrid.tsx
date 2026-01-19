@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ShoppingCart, Heart, Eye, Loader2, ChevronLeft, ChevronRight } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import { useNavigate } from "react-router-dom";
 import { productService } from "@/services/productService";
+import type { Product } from "@/types/apiproduct";
 
 import { useShopStore } from "@/store/useShopStore";
 
@@ -84,9 +85,11 @@ function ShopProductGrid() {
   }, [products, filters]);
 
   // Reset to page 1 when filters change
-  useEffect(() => {
+  const [prevFilters, setPrevFilters] = useState(filters);
+  if (filters !== prevFilters) {
+    setPrevFilters(filters);
     setCurrentPage(1);
-  }, [filters]);
+  }
 
   // Pagination Logic
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
@@ -113,25 +116,26 @@ function ShopProductGrid() {
     show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
   };
 
-  const handleWishlist = (product: any) => {
-    if (isInWishlist(product._id || product.id)) {
-      removeFromWishlist(product._id || product.id);
+  const handleWishlist = (product: Product) => {
+    const id = product._id || product.id;
+    if (isInWishlist(id)) {
+      removeFromWishlist(id);
     } else {
       addToWishlist({
-        id: product._id || product.id,
-        title: product.title || product.name,
+        id,
+        title: product.title || product.name || "",
         price: product.price,
-        image: product.imageUrl || product.image
+        image: product.imageUrl || product.image || ""
       });
     }
   };
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
     addToCart({
       id: product._id || product.id,
-      title: product.title || product.name,
+      title: product.title || product.name || "",
       price: product.price,
-      image: product.imageUrl || product.image,
+      image: product.imageUrl || product.image || "",
       quantity: 1
     });
   };

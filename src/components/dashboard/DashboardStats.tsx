@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, DollarSign, Heart, Package } from 'lucide-react';
+import type { Product } from '@/types/apiproduct';
 
 interface StatCardProps {
   label: string;
@@ -48,7 +49,7 @@ const StatCard: React.FC<StatCardProps> = ({
           transition={{ duration: 0.6 }}
           className={`shrink-0 rounded-xl sm:rounded-2xl p-3 sm:p-4 ${iconBgColor} bg-opacity-10 group-hover:bg-opacity-20 transition-all duration-300`}
         >
-          {React.cloneElement(icon as React.ReactElement<any>, { 
+          {React.cloneElement(icon as React.ReactElement<{ className?: string }>, {
             className: `w-6 h-6 sm:w-8 sm:h-8 ${iconBgColor.replace('bg-', 'text-')}` 
           })}
         </motion.div>
@@ -62,7 +63,7 @@ const StatCard: React.FC<StatCardProps> = ({
   );
 };
 
-const DashboardStats: React.FC<{ products: any[] }> = ({ products = [] }) => {
+const DashboardStats: React.FC<{ products: Product[] }> = ({ products = [] }) => {
   // Calculate real statistics from products
   const totalProducts = products.length;
   
@@ -85,11 +86,6 @@ const DashboardStats: React.FC<{ products: any[] }> = ({ products = [] }) => {
     const stock = product.stock || 0;
     return stock > 0 && stock < 10;
   }).length;
-  
-  // Calculate total items in stock
-  const totalStock = products.reduce((sum, product) => {
-    return sum + (product.stock || 0);
-  }, 0);
 
   const stats = [
     {

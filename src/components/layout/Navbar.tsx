@@ -9,10 +9,11 @@ import { useWishlist } from "@/context/WishlistContext";
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
   const location = useLocation();
   const { cartCount } = useCart();
   const { wishlistCount } = useWishlist();
+
+  const isAdmin = localStorage.getItem("isAdmin") === "true";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -20,11 +21,9 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
+  const handleLinkClick = () => {
     setMenuOpen(false);
-    // Check admin status whenever location changes
-    setIsAdmin(localStorage.getItem("isAdmin") === "true");
-  }, [location]);
+  };
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -46,7 +45,11 @@ function Navbar() {
         </button>
 
         {/* Logo */}
-        <Link to="/" className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 lg:flex items-center gap-2">
+        <Link
+          to="/"
+          onClick={handleLinkClick}
+          className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 lg:flex items-center gap-2"
+        >
           <span className="text-2xl font-black tracking-tighter uppercase text-gray-900 dark:text-white transition-colors duration-500">Auréne</span>
           <div className="hidden lg:block w-1.5 h-1.5 bg-orange-500 rounded-full" />
         </Link>
@@ -57,6 +60,7 @@ function Navbar() {
             <Link 
               key={link.name}
               to={link.path} 
+              onClick={handleLinkClick}
               className={`text-[10px] font-bold uppercase tracking-[0.3em] transition-all hover:text-orange-500 ${location.pathname === link.path ? 'text-orange-500' : 'text-gray-500 dark:text-gray-400'}`}
             >
               {link.name}
@@ -132,6 +136,7 @@ function Navbar() {
                   >
                     <Link 
                       to={link.path}
+                      onClick={handleLinkClick}
                       className={`text-2xl font-black uppercase tracking-tighter ${location.pathname === link.path ? 'text-orange-500' : 'text-gray-900 dark:text-white'}`}
                     >
                       {link.name}

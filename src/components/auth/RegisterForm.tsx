@@ -5,7 +5,7 @@ import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
 import { api } from "@/lib/api";
 import { useNavigate } from "react-router-dom";
-import { Loader2, Lock, Mail, User } from "lucide-react";
+import { Loader2, Mail, User } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "Full name required"),
